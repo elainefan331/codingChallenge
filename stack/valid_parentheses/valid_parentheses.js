@@ -33,7 +33,7 @@ else --> return false
 */
 
 
-var isValid = function(s) {
+const isValid = function(s) {
     const object = {"(": ")", "{": "}", "[": "]"};
     const openParentheses = Object.keys(object);
     let stack = [];
@@ -43,6 +43,7 @@ var isValid = function(s) {
             stack.push(s[i])
         } else {
             if (object[stack.pop()] !== s[i]) return false
+            // if stack is empty, stack.pop() will return undefined
         }
     }
 
@@ -50,5 +51,5 @@ var isValid = function(s) {
 };
 
 
-// console.log("(){}[]")
+// console.log(isValid("(){}[]"))
 // console.log(isValid("(]"))
