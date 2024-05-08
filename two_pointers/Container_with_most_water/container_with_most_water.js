@@ -9,7 +9,7 @@ Notice that you may not slant the container.
 
 ==================plan============================
 goal: find the max area that can contain the most water
-
+near-optimal solution:
 1. use two pointers point to the most left and most right line
 2. calculate the area between two lines
 3. compare the area between two lines and the max area
@@ -17,8 +17,11 @@ goal: find the max area that can contain the most water
     - smaller than --> doing nothing
 4. move the pointer of the shorter line forward to the center
     - repeat steps 2-3
+    
+things to consider: check heights beyond pointers(before moving either pointer, check the heights of the lines just beyond each pointer to make a more informed decision on which pointer to move.)
 
 */
+
 
 const maxArea = (height) => {
     let left = 0;
@@ -33,7 +36,7 @@ const maxArea = (height) => {
         }
 
         let currArea = (right - left) * Math.min(height[left], height[right]);
-        
+
         if (currArea > maxArea) {
             maxArea = currArea
         }
