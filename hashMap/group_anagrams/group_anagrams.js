@@ -17,6 +17,7 @@ const groupAnagrams = (strs) => {
     
     for(let i = 0; i < strs.length; i++) {
         const sortedStr = strs[i].split("").sort().join("");
+        
         if (sortedStr in object) {
             object[sortedStr].push(strs[i])
         } else {
@@ -27,5 +28,5 @@ const groupAnagrams = (strs) => {
     return Object.values(object);
 }
 
-// console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]));
+console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]));
 
