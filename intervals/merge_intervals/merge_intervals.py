@@ -1,8 +1,8 @@
 """
 1.sort the intervals
 2.iterate through the intervals
-    declear the current interval
-    declear the last interval
+    declare the current interval
+    declare the last interval
     check if the current interval is overlapping with the last interval in the stack
     - if the current interval is partial overlapping 
         --> change the value of second index to current interval's end

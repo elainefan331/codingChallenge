@@ -6,7 +6,7 @@ You may assume that each input would have exactly one solution, and you may not 
 You can return the answer in any order.
 
 ================================plan=================================
-declear a hash map
+declare a hash map
 iterate through the given array, keep tracking the index and the element
     - if the complement(target number - element value) is not inside of the hash map
         --> add the element as key, and the index as value into the hash map

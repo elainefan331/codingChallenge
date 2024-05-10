@@ -3,8 +3,8 @@ Given an array of positive integers nums and a positive integer target, return t
 subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
 
 ===================plan===========================
-- declear a minLength = Infinite
-- declear left pointer at index = 0
+- declare a minLength = Infinite
+- declare left pointer at index = 0
 - iterate the given array
     - if the sum is greater than or equal to target
         --> compare the current length of (right - left) and min length

@@ -3,8 +3,8 @@ Given an m x n integer matrix matrix, if an element is 0, set its entire row and
 do not return anything, modify matrix in-place instead
 
 ====================plan==================================
-declear a col set
-declear a row set
+declare a col set
+declare a row set
 go through the matrix, find the 0s, store the row and column of the 0s into the col set or row set
 iterate through the matrix again, check if the element's col or row is included in col set or row set
     if it is --> convert the element to 0

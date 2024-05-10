@@ -1,7 +1,7 @@
 """
-declear an object that contains parentheses pairs
-declear an array that contains the open parentheses --> use Object.keys()
-declear an empty stack
+declare an object that contains parentheses pairs
+declare an array that contains the open parentheses --> use Object.keys()
+declare an empty stack
 
 iterate the string
 - if the element is included in the open parentheses array
