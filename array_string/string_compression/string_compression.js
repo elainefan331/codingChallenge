@@ -1,10 +1,9 @@
 /*
 =======================plan==============================
-declare num = 1
-declare left = 0
-iterate through the given array chars
-    - if chars[i] === chars[i + 1] --> nums++ 
-    - if chars[i] !== chars[i + 1] --> left++, nums = 0, chars[left] = nums
+use two pointer l and r
+l --> where the length of result
+r --> iterate through the given chars
+
 */
 
 const compress = (chars) => {
