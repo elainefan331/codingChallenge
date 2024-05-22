@@ -32,9 +32,6 @@ const closeStrings = (word1, word2) => {
     const keyObj2 = Object.keys(obj2).sort();
     const valueObj1 = Object.values(obj1).sort();
     const valueObj2 = Object.values(obj2).sort();
-    console.log(valueObj1);
-    console.log(valueObj2);
-
 
     return valueObj1.join("") === valueObj2.join("") && keyObj1.join("") === keyObj2.join("");
 }
