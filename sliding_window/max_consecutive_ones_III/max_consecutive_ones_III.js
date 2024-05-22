@@ -31,6 +31,7 @@ const longestOnes = (nums, k) => {
                     left++
                 }
                 left++;
+                zeroCount--;
                 currLength = right - left + 1;
                 maxLength = Math.max(maxLength, currLength)
             }
