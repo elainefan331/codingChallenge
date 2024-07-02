@@ -1,3 +1,22 @@
+/*
+sort the potions array
+declare result = []
+iterate through the spells array
+    - binary search
+        set left = 0
+        set right = potions.length - 1
+        set mid = middle index of range [left, right] 
+        - if spells[i] * potions[mid] >= success
+            --> move right pointer to mid - 1
+        - if spells[i] * potions[mid] < success
+            --> move left pointer to mid + 1
+        continue the process until left > right
+    - the pairs = potions.length - left
+    - push pairs into result array
+return result array
+*/ 
+
+
 const successfulPairs = (spells, potions, success) => {
     potions.sort((a,b) => a - b);
     const result = [];
