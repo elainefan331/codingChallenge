@@ -1,8 +1,8 @@
 const pathSum = (root, targetSum) => {
-  let count = 0
   let res = 0
   const dfs = (node, targetSum) => {
     if (node === null) return 0;
+    let count = 0
 
     if (node.val === targetSum) count++
 
@@ -12,13 +12,15 @@ const pathSum = (root, targetSum) => {
     return count
   }
 
-  const treverse = (node, targetSum) => {
+  const treverse = (node) => {
     if (node === null) return
 
     res += dfs(node, targetSum)
-    treverse(node.left, targetSum)
-    treverse(node.right, targetSum)
+
+    treverse(node.left)
+    treverse(node.right)
 
   }
+  treverse(root)
   return res
 }
