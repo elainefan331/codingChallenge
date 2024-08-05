@@ -1,21 +1,24 @@
 const pathSum = (root, targetSum) => {
-  let times = 0;
-  const dfs = (node, currSum, currArr) => {
-    if (node === null) return;
+  let count = 0
+  let res = 0
+  const dfs = (node, targetSum) => {
+    if (node === null) return 0;
 
-    currSum += node.val;
-    currArr.push(node.val)
+    if (node.val === targetSum) count++
 
-    if (currSum === targetSum) times += 1
-    if (currSum > targetSum && currArr.length > 1) {
-      currArr.shift()
-    }
+    count += dfs(node.left, targetSum - node.val)
+    count += dfs(node.right, targetSum - node.val)
 
-    dfs(node.left, currSum, currArr)
-    dfs(node.right, currSum, currArr)
-
-    currArr.pop()
+    return count
   }
-  dfs(root, 0, [])
-  return times;
+
+  const treverse = (node, targetSum) => {
+    if (node === null) return
+
+    res += dfs(node, targetSum)
+    treverse(node.left, targetSum)
+    treverse(node.right, targetSum)
+
+  }
+  return res
 }
