@@ -1,3 +1,11 @@
+/*
+helper function: check if start from any node, is there any child(including current node) sum === targetSum
+traverse function: traverse each node
+
+
+*/
+
+
 const pathSum = (root, targetSum) => {
   let res = 0
   const dfs = (node, targetSum) => {
@@ -12,15 +20,15 @@ const pathSum = (root, targetSum) => {
     return count
   }
 
-  const treverse = (node) => {
+  const traverse = (node) => {
     if (node === null) return
 
     res += dfs(node, targetSum)
 
-    treverse(node.left)
-    treverse(node.right)
+    traverse(node.left)
+    traverse(node.right)
 
   }
-  treverse(root)
+  traverse(root)
   return res
 }

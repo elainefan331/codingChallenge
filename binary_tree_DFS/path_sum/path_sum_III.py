@@ -1,28 +1,14 @@
-# declare a helper function: dfs(node, currSum, currList)
-# declare times = 0
-# base case: if the node == Null --> return 0
-# currSum += node.val
-# currList.append(node.val)
-# if currSum == targetSum --> times += 1
-# if currSum > targetSum --> currList.pop(0)
-# clean the list --> currList.pop()
-
-def pathSum(root, targetSum):
-    times = 0
-    def dfs(node, currSum, currList):
-        if not node:
-            return
-        currSum += node.val
-        currList.append(node.val)
-        
-        if currSum == targetSum:
-            times += 1
-        elif currSum > targetSum:
-            currList.pop(0)
-            
-        dfs(node.left, currSum, currList)
-        dfs(node.right, currSum, currList)
-        
-        currList.pop()
-    
-    dfs(root, 0, [])
+# a function to traverse whole binary tree, take in node as parameter
+#   set res = 0
+#   traverse binary tree
+#   push each node into helper function
+#   res += the return value of helper function
+#   return res
+# helper function(pathSum), take in node and targetSum as parameters
+# count valid path start from any node to any child node
+#   set count = 0
+#   base case: if not node --> return 0
+#   if node.val === targetSum --> count++
+#   count += pathSum(node.left, targetSum - node.val)
+#   count += pathSum(node.right, targetSum - node.val)
+#   return count
