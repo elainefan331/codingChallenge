@@ -29,6 +29,7 @@ def pathSum(root, targetSum):
         if not node:
             return
         nonlocal res
+        # tell python res is not only local variable inside dfs
         res += pathCount(node, targetSum)
         dfs(node.left)
         dfs(node.right)
