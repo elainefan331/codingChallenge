@@ -1,7 +1,48 @@
 /*
-The problem is to return a list of the last elements from all levels, so it's way more natural to implement BFS here.
+BFS
+1. create a variable res = []
+2. create a queue to store the nodes at each level
+   create a variable mostRight to store the most right node
 
-Time complexity is the same O(N) both for DFS and BFS since one has to visit all nodes.
+while q.length > 0
+iterate through the current queue
+3. pop out the first element in queue
+   if the element is !== null --> add ele.left and ele.right into queue
+4. if the pop element is !== null --> update the most right node
 
-Space complexity is O(H) for DFS and O(D) for BFS, where H is a tree height, and D is a tree diameter. They both result in O(N) space in the worst-case scenarios: skewed tree for DFS and complete tree for BFS.
+after each iteration
+5. if the most right node had found --> store it into res
+
+6. return res
+
+time complexity: O(n)
+space complexity: O(D) where D is diameter ==> O(n/2)
+(In a complete binary tree, the maximum number of nodes at the last level (which is the widest level) is close to N/2, where N is the total number of nodes in the tree. )
+
 */
+
+
+const rightSideView = (root) => {
+    const res = []
+    const q = [root]
+    let qLen = q.length
+    while (qLen > 0) {
+        let mostRight = null
+
+        for (let i = 0; i < qLen; i++) {
+            let node = q.shift()
+    
+            if (node !== null) {
+                mostRight = node
+                q.push(node.left)
+                q.push(node.right)
+            }
+        }
+    
+        if (mostRight !== null) {
+            res.push(mostRight)
+        }
+    }
+
+    return res
+}
