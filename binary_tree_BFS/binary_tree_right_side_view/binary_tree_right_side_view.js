@@ -25,8 +25,8 @@ space complexity: O(D) where D is diameter ==> O(n/2)
 const rightSideView = (root) => {
     const res = []
     const q = [root]
-    let qLen = q.length
-    while (qLen > 0) {
+    while (q.length > 0) {
+        let qLen = q.length
         let mostRight = null
 
         for (let i = 0; i < qLen; i++) {
@@ -40,7 +40,7 @@ const rightSideView = (root) => {
         }
     
         if (mostRight !== null) {
-            res.push(mostRight)
+            res.push(mostRight.val)
         }
     }
 
