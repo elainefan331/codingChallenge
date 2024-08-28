@@ -1,24 +1,35 @@
-class Solution:
-    def maxLevelSum(self, root: Optional[TreeNode]) -> int:
-        max_sum, ans, level = float('-inf'), 0, 0
-
-        q = collections.deque()
-        q.append(root)
-
-        while q:
-            level += 1
-            sum_at_current_level = 0
-            # Iterate over all the nodes in the current level.
-            for _ in range(len(q)):
-                node = q.popleft()
-                sum_at_current_level += node.val
-
+# BFS
+# create a variable level to store currlevel
+# create a variable q to store all the node value at currlevel as a list
+# create a variable max = root.val
+# while p.length > 0
+# create a variable sum to store the sum of value
+# pop out the node in q, add the node.val to sum
+# after pop out all the node at currlevel
+# if the sum of q is greater than max, update max and level
+from collections import deque
+def maxLevelSum(root):
+    level = 0
+    q = deque([root])
+    maxSum = float('-inf')
+    maxLevel = 1
+    
+    while len(q) > 0:
+        length = len(q)
+        sum = 0
+        for i in range(length):
+            node = q.popleft()
+            if node:
+                sum += node.val
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-
-            if max_sum < sum_at_current_level:
-                max_sum, ans = sum_at_current_level, level
-           
-        return ans
+        
+        level += 1
+        if sum > maxSum:
+            maxSum = sum
+            maxLevel = level
+                
+        
+    return maxLevel  
