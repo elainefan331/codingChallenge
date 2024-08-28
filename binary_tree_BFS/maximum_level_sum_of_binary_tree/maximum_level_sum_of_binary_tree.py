@@ -12,7 +12,7 @@ def maxLevelSum(root):
     level = 0
     q = deque([root])
     maxSum = float('-inf')
-    maxLevel = 1
+    maxLevel = 0
     
     while len(q) > 0:
         length = len(q)

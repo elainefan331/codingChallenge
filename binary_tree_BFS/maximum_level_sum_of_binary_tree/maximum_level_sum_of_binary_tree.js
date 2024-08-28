@@ -1,41 +1,27 @@
-/*
-Create an integer variable maxSum to keep track of the maximum sum of node values at any level. We start with a large negative value.
-Create another variable ans to store the answer to the problem.
-Create another integer variable level to store the current level through which we are iterating. We initialize it with 0.
+const maxLevelSum = (root) => {
+    let currlevel = 0
+    let maxLevel = 0
+    let q = [root]
+    let maxSum = -Infinity
+    while (q.length > 0) {
+        let sum = 0
+        let length = q.length
 
+        for (let i = 0; i < length; i++) {
+            let node = q.shift()
 
-var maxLevelSum = function (root) {
-    let maxsum = -100001;
-    let res;
-    let level=1;
-    const queue = []
-    queue.push(root)
-    while (queue.length > 0) {
-        let iterator= queue.length;
-        let sum=0;
-        for(let i=0;i<iterator;i++){
-            let temp = queue[0];
-            sum= sum + temp.val
-            queue.shift();
-            if (temp.left!=null){
-                queue.push(temp.left)
+            if (node) {
+                sum += node.val
+                if(node.left) q.push(node.left)
+                if(node.right) q.push(node.right)
             }
-            if (temp.right!=null){
-                queue.push(temp.right)
-            }
-
-
         }
-        if (sum>maxsum){
-            maxsum= sum;
-            res= level
+        currlevel += 1
+
+        if (sum > maxSum) {
+            maxSum = sum
+            maxLevel = currlevel
         }
-        level++;
-
-
     }
-    return res
-
-};
-
-*/
+    return maxLevel
+}
