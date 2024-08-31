@@ -3,30 +3,28 @@
 
 def findMostLeft(root):
     cur = root.right
-    root = root.right
-    if cur.left:
+    while cur.left:
         cur = cur.left
-        root = root.left
-    root = None
-    return cur.val
+    return cur
 
 def deleteNode(root, key):
     if not root:
         return None
     
     if key < root.val:
-        deleteNode(root.left, key)
+        root.left = deleteNode(root.left, key)
     elif key > root.val:
-        deleteNode(root.right, key)
+        root.right = deleteNode(root.right, key)
     else:
+        if not root.left and not root.right:
+            return None
         if not root.left:
-            root = root.right
+            return root.right
         if not root.right:
-            root = root.left
-        if not root.right and not root.left:
-            root = None
+            return root.left
         if root.right and root.left:
-            root.val = findMostLeft(root)
+            root.val = findMostLeft(root).val
+            root.right = deleteNode(root.right, root.val)
             
     return root
         
