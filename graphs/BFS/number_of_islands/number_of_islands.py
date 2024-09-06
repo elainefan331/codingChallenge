@@ -35,13 +35,23 @@ import collections
     
 #     return count
 
+# test
+# q = collections.deque()
+# q.append((0, 1))
+# print("q", q)
 
-q = collections.deque()
-q.append((0, 1))
-print("q", q)
-q.append((0, 2))
-print("q", q)
-c = q.popleft()
-print("pop out", c)
+# q.append((0, 2))
+# print("q", q)
+
+# c, r = q.popleft()
+# print("pop out", c)
 # print("pop out", r)
-print('q', q)
+# print('q', q)
+
+
+# output
+# q deque([(0, 1)])
+# q deque([(0, 1), (0, 2)])
+# pop out 0
+# pop out 1
+# q deque([(0, 2)])
