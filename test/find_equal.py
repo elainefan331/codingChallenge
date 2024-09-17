@@ -1,5 +1,7 @@
 import math
 def findEqual(teams, k):
+    if not teams:
+        return 0
     freq = {}
     for i in teams:
         if i in freq:
@@ -12,7 +14,10 @@ def findEqual(teams, k):
     for i in freq:
         if freq[i] > maxFreq:
             maxFreq = freq[i]
-            target = i    
+            target = i
+            
+    if k == 0:
+        return maxFreq    
     for i in teams:
         if i < target:
             continue
@@ -23,3 +28,4 @@ def findEqual(teams, k):
     
 print(findEqual([1, 2, 2, 3, 4], 2))
 print(findEqual([5, 5, 6, 7, 8, 9], 3))
+print(findEqual([1,2,3,4,5,6,7], 10))
